@@ -77,11 +77,13 @@
 
       const router = new Router('app');
 
-      // Les routes doivent retourner du HTML, pas des fonctions
-      router.addRoute("/", () => AboutMePage());
-      router.addRoute("/about", () => AboutMePage());
-      router.addRoute("/projects", () => ConstructionPage());
-      router.addRoute("/contacts", () => ContactPage());
+      // Fonction pour construire les chemins
+      const makePath = (name) => name === '' ? '/' : '/' + name;
+      
+      router.addRoute(makePath(''), () => AboutMePage());
+      router.addRoute(makePath('about'), () => AboutMePage());
+      router.addRoute(makePath('projects'), () => ConstructionPage());
+      router.addRoute(makePath('contacts'), () => ContactPage());
 
       // Exposer le router globalement
       window.router = router;
