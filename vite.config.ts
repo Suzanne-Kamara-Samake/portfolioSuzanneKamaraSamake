@@ -26,6 +26,10 @@ export default defineConfig({
   
   // Optimisations de dev
   server: {
-    middlewareMode: false,
+    host: true,
+    port: 5173,
+    strictPort: false,
+    open: true,
   }
 })
+

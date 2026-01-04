@@ -13,51 +13,17 @@
   </head>
   <body class=" body flex relative ">
 <div id="app" class=" flex  h-screen w-screen overflow-y-auto" ></div>
-    <!-- <div id="app2" class=" h-full w-full" ></div> -->
-    <!-- <script type="module" src="/src/main.js"></script> -->
     <script type="module" >
+      import { LayoutPage} from "/src/template/Layout/page.js";
       import { ContactPage} from "/src/template/Contact/page.js";
       import { ProjectPage} from "/src/template/Project/page.js";
       import { AboutMePage} from "/src/template/About Me/page.js";
       import { ConstructionPage} from "/src/template/EnCoursConstruction/page.js";
       import { BurgerMenu } from "/src/template/BurgerMenu/script.js";
+      import {NavigationPage} from "/src/template/BurgerMenu/page.js";
       import { Router } from "/src/utils/router.js";
       let C = {};
-      // let V ={};
-      // V.renderAbout = function(){
-      //   let slot = document.getElementById("app");
-      //   slot.appendChild(AboutMeView.dom());
-      // };
-      // V.renderProject = function(){
-      //   let slot = document.getElementById("app");
-      //   slot.appendChild(ProjectView.dom());
-      // };
-      // // V.renderContact = function(){
-      // //   let slot = document.getElementById("app");
-      // //   slot.appendChild(ContactView.dom()) ;
-      // // };
-      // V.renderEnCoursConstruction = function(){
-      //   let slot = document.getElementById("app");
-      //   slot.appendChild(ConstructionView.dom()) ;
-      // };
-
-
-
-      // C.handlerLinks = function(ev){
-      //   if (ev.target.tagName !== 'A') return;
-      //   ev.preventDefault();
-      //   const href = ev.target.getAttribute('href');
-      //   if(href === '#about'){
-      //     document.getElementById("app").innerHTML = "";
-      //     V.renderAbout();
-      //   }else if(href === '#projects'){
-      //     document.getElementById("app").innerHTML = "";
-      //    V.renderEnCoursConstruction();
-      //   }else if(href === '#contacts'){
-      //     document.getElementById("app").innerHTML = "";
-      //     V.renderContact();
-      //   }
-      // };
+      
 
       C.init = function(){
         // Pas besoin de DOMContentLoaded, on est déjà chargé
@@ -80,7 +46,7 @@
       // Fonction pour construire les chemins
       const makePath = (name) => name === '' ? '/' : '/' + name;
       
-      router.addRoute(makePath(''), () => AboutMePage());
+      router.addRoute(makePath(''), () => LayoutPage());
       router.addRoute(makePath('about'), () => AboutMePage());
       router.addRoute(makePath('projects'), () => ConstructionPage());
       router.addRoute(makePath('contacts'), () => ContactPage());

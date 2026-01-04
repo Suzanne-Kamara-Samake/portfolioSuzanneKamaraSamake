@@ -1,5 +1,47 @@
 @import "tailwindcss";
 
+/* Personnalisation de la barre de scroll - Figma Design */
+/* Pour Chrome, Safari et Edge - Scrollbar Vertical */
+::-webkit-scrollbar {
+    width: 33px;
+    height: 33px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(246, 240, 210) 21.635%, rgba(237, 129, 176, 0.75) 38.942%, rgb(156, 220, 254) 63.702%, rgb(60, 120, 172) 100%);
+    border-radius: 30px;
+    width: 33px;
+   
+    margin: 25px;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 30px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    backdrop-filter: blur(2px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
+    /* background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(246, 240, 210) 21.635%, rgba(237, 129, 176, 0.75) 38.942%, rgb(156, 220, 254) 63.702%, rgb(60, 120, 172) 100%); */
+    background-clip: padding-box;
+}
+
+/* Corner (intersection scrollbars) */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* Pour Firefox */
+/* * {
+  
+    scrollbar-color: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(246, 240, 210) 21.635%, rgba(237, 129, 176, 0.75) 38.942%, rgb(156, 220, 254) 63.702%, rgb(60, 120, 172) 100%) transparent;
+    scrollbar-width: wide;
+} */
+
 :root {
     --white: hsla(0, 0%, 100%, 1);
     --black: hsla(0, 0%, 0%, 1);
@@ -64,7 +106,11 @@
     
 font-family: "DeFonte Reduced";
 width:100%;
+background: url(/public/AboutMe/background.svg) no-repeat bottom;
+background-size: cover;
+background-attachment: fixed;
 }
+
 @utility demiGrasText {
     font-family: "DeFonte Reduced DemiGras";
     
@@ -155,4 +201,54 @@ width:100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+/* Figma Design System Styles */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+#app {
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Main layout section */
+section {
+  width: 100%;
+}
+
+/* Text utilities */
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+/* Rounded corners */
+.rounded-30 {
+  border-radius: 30px;
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+/* Backdrop blur */
+.backdrop-blur-sm {
+  backdrop-filter: blur(2px);
+}
+
+/* Responsive container */
+.max-w-1349 {
+  max-width: 1349px;
 }

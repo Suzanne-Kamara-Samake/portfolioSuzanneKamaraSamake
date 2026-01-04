@@ -1,0 +1,27 @@
+<!-- Navigation Bar - Figma Design -->
+<nav class="fixed top-0 left-0 right-0 bg-[#fcd41a] h-[150px] w-full flex flex-col justify-between px-[17px] z-50 scrollbar-none" style="overflow: hidden;">
+	
+	
+	<!-- Navigation Links -->
+	<div class="flex justify-center gap-[100px] items-start text-[#f41a78] text-[40px] uppercase font-['DeFonte_Reduced:Normale',sans-serif] pb-[48px]">
+		<button class="hover:opacity-70 transition-opacity" onclick="location.href='/about'">ABOUT ME</button>
+		<button class="hover:opacity-70 transition-opacity" onclick="location.href='/projects'">MY PROJECTS</button>
+		<button class="hover:opacity-70 transition-opacity" onclick="location.href='/contacts'">CONTACTS</button>
+	</div>
+</nav>
+<!-- Color Stripes -->
+	<div class="flex h-[15px] w-full gap-0 fixed top-[150px] left-0 right-0 z-50">
+		<div class="flex-1 bg-[#d7d1c5]"></div>
+		<div class="flex-1 bg-[#f2c045]"></div>
+		<div class="flex-1 bg-[#173084]"></div>
+		<div class="flex-1 bg-[#106f1c]"></div>
+		<div class="flex-1 bg-[#d86d20]"></div>
+		<div class="flex-1 bg-[#9cdcfe]"></div>
+		<div class="flex-1 bg-[#dbdc56]"></div>
+	</div>
+<!-- Mobile Menu Toggle (Hidden for now - can be implemented later) -->
+<button id="menu-toggle" class="md:hidden fixed top-4 left-4 z-100 flex flex-col bg-red hover:opacity-90 transition-colors p-3 rounded-lg">
+	<span class="block w-6 h-1 bg-light-pink transition-all duration-300 mb-1.5" id="burger-top"></span>
+	<span class="block w-6 h-1 bg-light-pink transition-all duration-300 mb-1.5" id="burger-middle"></span>
+	<span class="block w-6 h-1 bg-light-pink transition-all duration-300" id="burger-bottom"></span>
+</button>
