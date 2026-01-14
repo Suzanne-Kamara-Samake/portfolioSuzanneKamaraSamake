@@ -15,6 +15,9 @@ class Router {
     this.currentRoute = null;
     this.isAuthenticated = false;
     this.loginPath = options.loginPath || '/login';
+    this.basePath = this.getBasePath();
+    
+    console.log('Router initialized with basePath:', this.basePath);
     
     // Écouter les changements d'URL
     window.addEventListener('popstate', () => this.handleRoute());
@@ -120,16 +123,48 @@ class Router {
     return params;
   }
   
+  // Obtenir la base URL de Vite
+  getBasePath() {
+    // Récupérer la base depuis la balise meta ou depuis import.meta
+    const baseElement = document.querySelector('meta[name="vite:base"]');
+    if (baseElement) {
+      return baseElement.getAttribute('content');
+    }
+    // Fallback: essayer d'extraire depuis import.meta.env.BASE_URL
+    if (import.meta.env && import.meta.env.BASE_URL) {
+      return import.meta.env.BASE_URL;
+    }
+    // Dernier fallback: vérifier le pathname actuellement
+    const pathname = window.location.pathname;
+    if (pathname.includes('/portfolioSuzanneKamaraSamake/')) {
+      return '/portfolioSuzanneKamaraSamake/';
+    }
+    return '/';
+  }
+
+  // Extraire le chemin relatif après la base
+  getRelativePath() {
+    const basePath = this.getBasePath();
+    const fullPath = window.location.pathname;
+    
+    if (basePath !== '/' && fullPath.startsWith(basePath)) {
+      return '/' + fullPath.slice(basePath.length);
+    }
+    return fullPath;
+  }
+
   // Naviguer vers une route
   navigate(path) {
-    window.history.pushState(null, null, path);
+    const basePath = this.getBasePath();
+    const fullPath = basePath === '/' ? path : basePath.replace(/\/$/, '') + path;
+    window.history.pushState(null, null, fullPath);
     this.handleRoute();
   }
   
   // Gérer la route actuelle
   handleRoute() {
-    const path = window.location.pathname;
-    console.log('handleRoute:', path);
+    const path = this.getRelativePath();
+    console.log('handleRoute - relativePath:', path, 'fullPath:', window.location.pathname);
     
     // Trouver la route correspondante
     for (const route of this.routes) {
